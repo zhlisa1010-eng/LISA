@@ -11,19 +11,15 @@ This repository contains the official implementation of **LISA**, a method desig
 
 
 
-## Installation
+## Motivation
 
-To get started with **LISA**, follow these steps:
+Multimodal models, particularly those based on transformers, often produce hallucinations, especially in deeper layers. **LISA** addresses this issue by introducing a layer-wise decoding approach that combines the following mechanisms:
 
-```bash
-cd LISA
-conda create -n lisa_env python=3.10
-conda activate lisa_env
-pip install -r requirements.txt
-```
+* **Spectral Modulation (SM)**: Stabilizes activations in deep layers while preserving grounding from early layers.
+* **Cross-layer Fusion (CF)**: Aggregates token-level representations across multiple layers to create a stable, reliable anchor.
+* **Token-wise Soft Fusion (TSF)**: Dynamically selects the most reliable layers for each token during decoding.
 
-
-
+These combined mechanisms help **LISA** effectively mitigate hallucinations and improve model robustness.
 
 
 
@@ -39,6 +35,26 @@ pip install -r requirements.txt
 
 
 
+## Installation
+
+To get started with **LISA**, follow these steps:
+
+```bash
+cd LISA
+conda create -n lisa_env python=3.10
+conda activate lisa_env
+pip install -r requirements.txt
+```
 
 
+
+## Conclusion
+
+The **ablation study** confirms that **LISA** operates as a layered system, with each core mechanism playing a distinct role:
+
+* **Spectral Modulation (SM)** stabilizes the model by preventing instability in deeper layers.
+* **Cross-layer Fusion (CF)** aggregates information across layers, creating a reliable anchor representation.
+* **Token-wise Soft Fusion (TSF)** adapts during decoding, ensuring that the most stable representations are used.
+
+Together, these mechanisms provide significant improvements over the baseline, confirming **LISA** as an effective method for reducing hallucinations and enhancing output fidelity in **Multimodal Large Language Models (MLLMs)**.
 
