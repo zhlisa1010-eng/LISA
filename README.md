@@ -56,5 +56,3 @@ The **ablation study** confirms that **LISA** operates as a layered system, with
 * **Cross-layer Fusion (CF)** aggregates information across layers, creating a reliable anchor representation.
 * **Token-wise Soft Fusion (TSF)** adapts during decoding, ensuring that the most stable representations are used.
 
-Together, these mechanisms provide significant improvements over the baseline, confirming **LISA** as an effective method for reducing hallucinations and enhancing output fidelity in **Multimodal Large Language Models (MLLMs)**.
-
